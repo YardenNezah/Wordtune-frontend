@@ -448,8 +448,7 @@ nav {
 
 	.hero-content a,
 	.companies-hero,
-	.scrolling-container,
-	.navigation-right-items {
+	.scrolling-container {
 		display: none;
 	}
 
@@ -474,10 +473,11 @@ nav {
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 825px) {
 	h1 {
 		font-size: 30px;
 		line-height: 35px;
+		text-align: center;
 	}
 
 	.text-content,
@@ -494,8 +494,8 @@ nav {
 			font-size: 11px !important;
 			margin: 0.2rem;
 			letter-spacing: 1px;
-			width: 4.5rem;
-			height: 4.5rem;
+			width: 4.2rem;
+			height: 4.2rem;
 			padding: 0;
 			border-radius: 50%;
 		}
@@ -562,6 +562,10 @@ nav {
 
 	.navigation-items {
 		padding: 0 3.5rem;
+	}
+
+	.navigation-right-items {
+		display: none;
 	}
 
 	nav {
