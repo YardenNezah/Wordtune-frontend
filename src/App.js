@@ -10,7 +10,7 @@ import './utils/fonts/PPFragment-GlareLightItalic.woff2';
 const App = () => {
   return (
     <BrowserRouter>
-    <NavBar />
+      <NavBar />
       <Routes>
         <Route>
           <Route index element={<Home />} />

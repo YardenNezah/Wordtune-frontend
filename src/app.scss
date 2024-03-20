@@ -44,12 +44,18 @@ h1 {
 	line-height: 66px;
 }
 
+br {
+	display: none;
+}
+
 button {
 	color: $white-color;
+	background: $transparent-color;
 	font: inherit;
 	border-radius: 1.5rem;
 	outline: none;
 	cursor: pointer;
+	border: 1px solid transparent;
 	transition: 0.5s;
 
 	&:hover {
@@ -85,7 +91,8 @@ nav {
 	transition: 0.5s;
 }
 
-.navigation-items {
+.navigation-items,
+.navigation-right-items {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -98,6 +105,21 @@ nav {
 	letter-spacing: 1px;
 	padding: 9px 0;
 	line-height: 20px;
+}
+
+.mobile-nav-container {
+	background-color: $light-purple-color;
+	position: absolute;
+	top: 4rem;
+	right: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	height: 150px;
+	padding: 1rem;
+	transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .cta-button {
@@ -136,7 +158,7 @@ nav {
 	}
 }
 
-.menu-button {
+.burger-menu {
 	display: none;
 }
 
@@ -185,11 +207,15 @@ nav {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
 
-	.companies-paragraph {
-		color: $grey-color;
-		font-size: 15px;
-	}
+.hero-paragraph {
+	color: $grey-color;
+	font-size: 15px;
+}
+
+.mobile-hero {
+	display: none;
 }
 
 .company-img {
@@ -243,7 +269,7 @@ nav {
 	align-items: center;
 	flex-direction: column;
 	max-width: 300px;
-	height: 550px;
+	height: 400px;
 	padding: 1rem;
 	position: relative;
 	text-align: center;
@@ -344,6 +370,62 @@ nav {
 	}
 }
 
+.burger-menu {
+	width: 30px;
+	height: 30px;
+	top: 100px;
+	left: 120px;
+	transition-duration: 0.5s;
+
+	.icon {
+		transition-duration: 0.5s;
+		position: absolute;
+		height: 3px;
+		width: 30px;
+		top: 30px;
+		background-color: $black-color;
+
+		&:before {
+			transition-duration: 0.5s;
+			position: absolute;
+			width: 30px;
+			height: 4px;
+			background-color: $black-color;
+			content: "";
+			top: -10px;
+		}
+
+		&:after {
+			transition-duration: 0.5s;
+			position: absolute;
+			width: 30px;
+			height: 4px;
+			background-color: $black-color;
+			content: "";
+			top: 10px;
+		}
+	}
+
+	&.open {
+		.icon {
+			transition-duration: 0.5s;
+			background: transparent;
+
+			&:before {
+				transform: rotateZ(45deg) scaleX(1.15) translate(10px, 3px);
+			}
+
+			&:after {
+				transform: rotateZ(-45deg) scaleX(1.15) translate(10px, -3px);
+			}
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
 @keyframes RightToLeft {
 	0% {
 		transform: translateX(0%);
@@ -355,5 +437,143 @@ nav {
 
 	100% {
 		transform: translateX(36%);
+	}
+}
+
+
+@media screen and (max-width: 1023px) {
+	.flex-container {
+		flex-direction: column;
+	}
+
+	.hero-text-content {
+		align-items: center;
+		text-align: center;
+	}
+
+	.hero-content a,
+	.companies-hero,
+	.scrolling-container,
+	.navigation-right-items {
+		display: none;
+	}
+
+	.mobile-hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	h1 {
+		font-size: 45px;
+	}
+
+	.text-content,
+	.cta-button {
+		font-size: 18px;
+	}
+
+	.hero-paragraph {
+		font-size: 13px;
+	}
+}
+
+
+@media screen and (max-width: 500px) {
+	h1 {
+		font-size: 30px;
+		line-height: 35px;
+	}
+
+	.text-content,
+	.cta-button {
+		font-size: 16px;
+	}
+
+	.playground-content .buttons-container {
+		display: flex;
+		justify-content: space-between;
+		margin: 2rem 0;
+
+		.report-title-button {
+			font-size: 11px !important;
+			margin: 0.2rem;
+			letter-spacing: 1px;
+			width: 4.5rem;
+			height: 4.5rem;
+			padding: 0;
+			border-radius: 50%;
+		}
+
+		span {
+			display: none;
+		}
+	}
+
+	.hero-paragraph {
+		font-size: 11px;
+	}
+
+	.hero,
+	.app-container {
+		padding: 1rem 3.5rem;
+		text-align: center;
+	}
+
+	.hero-img img {
+		max-width: 280px;
+	}
+
+	.flex-container {
+		gap: 0;
+	}
+
+	br {
+		display: block;
+	}
+
+	.app-cta {
+		padding-bottom: 0;
+
+		.cta-button {
+			display: none;
+		}
+	}
+
+	.playground-result {
+		padding: 2rem;
+		max-height: 420px;
+
+		.report-title {
+			font-size: 18px;
+			margin: 0;
+		}
+
+		.report-text {
+			font-size: 11px;
+		}
+
+		.summarize-button {
+			margin: 0 auto;
+			left: 0;
+			right: 0;
+			bottom: 2rem;
+		}
+	}
+
+	.logo-image {
+		width: 100px;
+	}
+
+	.navigation-items {
+		padding: 0 3.5rem;
+	}
+
+	nav {
+		height: 40px;
+	}
+
+	.burger-menu {
+		display: block;
 	}
 }

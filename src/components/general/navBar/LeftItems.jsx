@@ -4,7 +4,7 @@ import union from '../../../images/Union.png';
 const LeftItems = () => {
     return (
         <a href="/" className="logo-link">
-            <img src={union} width="185" alt="wordtune" className="logo-image"></img>
+            <img src={union} max-width="185" alt="wordtune" className="logo-image"></img>
         </a>
     )
 }

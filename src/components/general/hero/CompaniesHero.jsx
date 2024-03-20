@@ -19,7 +19,7 @@ const CompaniesHero = () => {
     const companiesImgSrc = [nike, walmart, ebay, fujifilm, zoom, google, doordash, airbnb, medtronic, primis, adidas, nice, samsung, wix]
     return (
         <section className="companies-hero">
-            <p className="companies-paragraph">Trusted by professional in leading companies.</p>
+            <p className="hero-paragraph">Trusted by professional in leading companies.</p>
             <GridContainer>
                 {companiesImgSrc.map((src) => <img src={src} alt={src} className='company-img'></img>)}
             </GridContainer>

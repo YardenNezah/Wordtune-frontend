@@ -9,7 +9,7 @@ const MainHero = () => {
         <FlexContainer>
             <div className="hero-content">
                 <div className="hero-text-content">
-                    <h1>Consume More With an <span className="font-general-sans">AI Summarization Tool</span></h1>
+                    <h1>Consume <br />More With an <span className="font-general-sans">AI Summarization Tool</span></h1>
                     <TextContent>
                         Maximize your efficiency by summarizing articles, videos and more.
                     </TextContent>
