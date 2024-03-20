@@ -87,17 +87,21 @@ nav {
 	transition: 0.5s;
 }
 
-.navigation-items,
 .navigation-right-items {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 2rem;
-	padding: 0 5rem;
 
 	.plans-link:hover {
 		color: $light-purple-color;
 	}
+}
+
+.navigation-items {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 6rem;
 }
 
 .navigation-item {
@@ -483,11 +487,13 @@ nav {
 	.text-content,
 	.cta-button {
 		font-size: 16px;
+		max-width: 20rem;
 	}
 
 	.playground-content .buttons-container {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: nowrap;
 		margin: 2rem 0;
 
 		.report-title-button {
@@ -511,7 +517,7 @@ nav {
 
 	.hero,
 	.app-container {
-		padding: 1rem 3.5rem;
+		padding: 1rem 2rem;
 		text-align: center;
 	}
 
@@ -538,6 +544,8 @@ nav {
 	.playground-result {
 		padding: 2rem;
 		max-height: 420px;
+		align-items: center;
+		max-width: 10rem;
 
 		.report-title {
 			font-size: 18px;
@@ -561,7 +569,7 @@ nav {
 	}
 
 	.navigation-items {
-		padding: 0 3.5rem;
+		padding: 0 2rem;
 	}
 
 	.navigation-right-items {
@@ -617,5 +625,11 @@ nav {
 				border-radius: 0;
 			}
 		}
+	}
+}
+
+@media screen and (max-width: 380px) {
+	.playground-content .buttons-container {
+		flex-wrap: wrap;
 	}
 }
