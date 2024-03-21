@@ -4,15 +4,25 @@ import TextContent from '../../layout/TextContent';
 import useFetch from '../../../utils/hooks/useFetch';
 import Error from '../../layout/Error';
 import Loader from '../../layout/Loader';
-import summarized from '../../../images/summarized.svg';
+import summarized from "../../../images/summarized.svg";
 
 const AppPlayground = () => {
     const { reports, error, loading } = useFetch('http://localhost:1337/api/reports');
     const [currentReport, setCurrentReport] = useState();
+    const [text, setText] = useState();
 
     useEffect(() => {
         if (reports) setCurrentReport(reports[0]);
     }, [reports])
+
+    useEffect(() => {
+        localStorage.getItem(currentReport?.id) ? setText(currentReport?.attributes.Summarized_Text) : setText(currentReport?.attributes.Text);
+    }, [currentReport]);
+
+    const summarizeText = () => {
+        localStorage.setItem(currentReport.id, true);
+        setText(currentReport?.attributes.Summarized_Text)
+    }
 
     return (
         <>
@@ -30,19 +40,14 @@ const AppPlayground = () => {
                 </div>
                 <div className="playground-result">
                     <p className="report-title">{currentReport?.attributes?.Title}</p>
-                    {
-                        currentReport?.hasSummarized ? <><p className={`report-text summarized fade-in`}>{currentReport?.attributes?.Summarized_Text}</p>
-                            <button className="summarized-button"><img src={summarized} alt={summarized}></img> Summarized</button>
-                        </> : <>
-                            <p className="report-text">{currentReport?.attributes?.Text}</p>
-                            <button className="summarize-button" onClick={() => setCurrentReport({ ...currentReport, hasSummarized: true })}>Summarize</button>
-                        </>
-                    }
+                    <><p className={`report-text ${localStorage.getItem(currentReport?.id) ? "summarized fade-in" : ""}`}>{text}</p>
+                        <button className={`${localStorage.getItem(currentReport?.id) ? "summarized-button" : "summarize-button"}`} onClick={summarizeText}> {localStorage.getItem(currentReport?.id) ? <><img src={summarized} alt={summarized}></img> Summarized</> : "Summarize"}</button>
+                    </>
                 </div>
             </FlexContainer>}
         </>
 
     )
 }
-
 export default AppPlayground
+
