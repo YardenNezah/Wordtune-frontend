@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useFetch = (url, type) => {
+const useFetch = (url) => {
     const [reports, setReports] = useState(null);
-    const [plans, setPlans] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -13,9 +12,7 @@ const useFetch = (url, type) => {
                 setLoading(true);
                 try {
                     const res = await axios.get(url);
-                    if(type === "reports") {
-                        setReports(res.data.data)
-                    } else setPlans(res.data.data);
+                    setReports(res.data.data)
                     setLoading(false);
                 } catch (error) {
                     setError(error);
@@ -24,10 +21,10 @@ const useFetch = (url, type) => {
             };
             fetchData();
         },
-        [url, type]
+        [url]
     );
 
-    return { reports, plans, error, loading };
+    return { reports, error, loading };
 }
 
 export default useFetch;

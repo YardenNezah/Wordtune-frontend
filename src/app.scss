@@ -137,7 +137,8 @@ nav {
 	border: 2px solid $purple-color;
 	transition: background-color .4s, opacity .4s, color .4s;
 
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		color: $white-color;
 		background-color: $purple-color;
 	}
@@ -393,8 +394,13 @@ nav {
 		font-size: 14px;
 		line-height: 20px;
 		max-height: 400px;
-		min-height: 400px;
+		min-height: 150px;
 		overflow: hidden;
+	}
+
+	.summarized {
+		background-image: none;
+		background-color: $black-color;
 	}
 
 	.summarize-button {
@@ -411,6 +417,19 @@ nav {
 			transform: scale(1.1);
 			box-shadow: $grey-shadow;
 		}
+	}
+
+	.summarized-button {
+		background-color: #F0FDF3;
+		color: #118432;
+		border: 1px solid #82F3A1;
+		font-size: 18px;
+		width: 10rem;
+		height: 3rem;
+		text-align: center;
+		position: absolute;
+		bottom: 3rem;
+		cursor: not-allowed;
 	}
 }
 
@@ -530,10 +549,10 @@ nav {
 		font-size: 13px;
 	}
 
-	
+
 	.card {
 		height: 450px;
-		width: 300px;	
+		width: 300px;
 		font-size: 13px;
 	}
 
@@ -605,7 +624,7 @@ nav {
 	}
 
 	.playground-result {
-		padding: 2rem;
+		padding: 3rem 2rem;
 		max-height: 420px;
 		align-items: center;
 		max-width: 10rem;
@@ -619,11 +638,16 @@ nav {
 			font-size: 11px;
 		}
 
-		.summarize-button {
+		.summarize-button,
+		.summarized-button {
 			margin: 0 auto;
 			left: 0;
 			right: 0;
 			bottom: 2rem;
+		}
+
+		.summarized-button {
+			bottom: 0.5rem;
 		}
 	}
 
@@ -633,18 +657,23 @@ nav {
 		line-height: 15px;
 		max-width: 250px;
 		height: 350px;
+
 		strong {
 			top: 32%;
 		}
+
 		h1 {
 			top: 33%;
 		}
+
 		h2 {
 			font-size: 24px;
 		}
+
 		ul {
 			top: 65%;
 		}
+
 		.hero-paragraph {
 			padding: 2rem 3.5rem;
 		}

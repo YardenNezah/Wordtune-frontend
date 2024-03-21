@@ -4,11 +4,11 @@ import TextContent from '../../layout/TextContent';
 import useFetch from '../../../utils/hooks/useFetch';
 import Error from '../../layout/Error';
 import Loader from '../../layout/Loader';
+import summarized from '../../../images/summarized.svg';
 
 const AppPlayground = () => {
-    const { reports, error, loading } = useFetch('http://localhost:1337/api/reports', "reports");
-    const [currentReport, setCurrentReport] = useState(null);
-    const [isSummarized, setIsSummarized] = useState(false);
+    const { reports, error, loading } = useFetch('http://localhost:1337/api/reports');
+    const [currentReport, setCurrentReport] = useState();
 
     useEffect(() => {
         if (reports) setCurrentReport(reports[0]);
@@ -29,11 +29,15 @@ const AppPlayground = () => {
                     </div>
                 </div>
                 <div className="playground-result">
-                    <p className="report-title">{currentReport?.attributes.Title}</p>
+                    <p className="report-title">{currentReport?.attributes?.Title}</p>
                     {
-                        isSummarized ? <p className={`report-text fade-in`}>{currentReport?.attributes.Summarized_Text}</p> : <p className={`report-text`}>{currentReport?.attributes.Text}</p>
+                        currentReport?.hasSummarized ? <><p className={`report-text summarized fade-in`}>{currentReport?.attributes?.Summarized_Text}</p>
+                            <button className="summarized-button"><img src={summarized} alt={summarized}></img> Summarized</button>
+                        </> : <>
+                            <p className="report-text">{currentReport?.attributes?.Text}</p>
+                            <button className="summarize-button" onClick={() => setCurrentReport({ ...currentReport, hasSummarized: true })}>Summarize</button>
+                        </>
                     }
-                    <button className="summarize-button" onClick={() => setIsSummarized(true)}>Summarize</button>
                 </div>
             </FlexContainer>}
         </>
