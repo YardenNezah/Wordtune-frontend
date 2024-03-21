@@ -137,13 +137,9 @@ nav {
 	border: 2px solid $purple-color;
 	transition: background-color .4s, opacity .4s, color .4s;
 
-	&:hover {
+	&:hover, &:focus {
 		color: $white-color;
 		background-color: $purple-color;
-	}
-
-	&:focus {
-		background-color: $white-color;
 	}
 }
 
