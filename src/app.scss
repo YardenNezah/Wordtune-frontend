@@ -556,7 +556,7 @@ nav {
 	.playground-content .buttons-container {
 		display: flex;
 		justify-content: space-between;
-		flex-wrap: nowrap;
+		flex-wrap: wrap;
 		margin: 2rem 0;
 
 		.report-title-button {
@@ -711,11 +711,5 @@ nav {
 				border-radius: 0;
 			}
 		}
-	}
-}
-
-@media screen and (max-width: 380px) {
-	.playground-content .buttons-container {
-		flex-wrap: wrap;
 	}
 }
