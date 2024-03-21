@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import UrlLink from '../../layout/UrlLink';
 import NavLink from '../../layout/NavLink';
+import MobileNavLink from '../../layout/MobileNavLink';
 
 const RightItems = () => {
     const [navIsOpen, setNavIsOpen] = useState(false);
@@ -15,9 +16,9 @@ const RightItems = () => {
                 <div className="icon"></div>
             </div>
             {navIsOpen && <div className='mobile-nav-container'>
-                <NavLink location="/" title="Home" />
-                <NavLink location="plans" title="Plans" />
-                <UrlLink location="https://app.wordtune.com/auth/signup" title="Get started" className="get-started-button" />
+                <MobileNavLink location="/" title="Home" />
+                <MobileNavLink location="plans" title="Plans" />
+                <UrlLink location="https://app.wordtune.com/auth/signup" title="Get started" className="get-started-button mobile-nav-link" />
             </div>}
         </>
     )

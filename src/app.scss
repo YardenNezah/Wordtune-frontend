@@ -600,7 +600,7 @@ nav {
 		animation: 1s slide-down;
 		padding: 1rem 0;
 
-		a {
+		.mobile-nav-link {
 			background-color: $transparent-color;
 			color: $black-color;
 			border: none;
