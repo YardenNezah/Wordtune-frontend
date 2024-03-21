@@ -21,7 +21,7 @@ const CompaniesHero = () => {
         <section className="companies-hero">
             <p className="hero-paragraph">Trusted by professional in leading companies.</p>
             <GridContainer>
-                {companiesImgSrc.map((src) => <img src={src} alt={src} className='company-img'></img>)}
+                {companiesImgSrc.map((src) => <img src={src} alt={src} className='company-img' key={src}></img>)}
             </GridContainer>
         </section>
     )

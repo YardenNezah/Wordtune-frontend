@@ -13,7 +13,7 @@ const NavBar = () => {
     const stickNavbar = () => window.scrollY > 150 ? setStickyClass(true) : setStickyClass(false);      
 
     return (
-        <nav className={stickyClass && "sticky-nav"}>
+        <nav className={stickyClass ? "sticky-nav" : ""}>
             <div className="navigation-items">
                 <LeftItems />
                 <RightItems />
