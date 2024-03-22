@@ -131,6 +131,11 @@ nav {
 	}
 }
 
+.data-container {
+	display: flex;
+	justify-content: center;
+}
+
 .get-started-button {
 	color: $purple-color;
 	background-color: $white-color;
