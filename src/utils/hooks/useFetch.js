@@ -12,7 +12,8 @@ const useFetch = (url) => {
                 setLoading(true);
                 try {
                     const res = await axios.get(url);
-                    setReports(res.data.data)
+                    const sortedData= res.data.data.sort((a, b)=> a.id - b.id);
+                    setReports(sortedData)
                     setLoading(false);
                 } catch (error) {
                     setError(error);

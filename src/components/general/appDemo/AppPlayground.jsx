@@ -7,7 +7,7 @@ import Loader from '../../layout/Loader';
 import summarized from "../../../images/summarized.svg";
 
 const AppPlayground = () => {
-    const { reports, error, loading } = useFetch('http://localhost:1337/api/reports');
+    const { reports, error, loading } = useFetch('https://passionate-family-853ce83e20.strapiapp.com/api/reports');
     const [currentReport, setCurrentReport] = useState();
     const [text, setText] = useState();
 
